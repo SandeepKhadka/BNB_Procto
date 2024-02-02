@@ -6,20 +6,23 @@ import {Button} from '@mui/material'
 const Nav = styled.div.attrs({ className: 'navbar' })`
     display: flex;
     justify-content: space-between;
-    /* width: 100%; */
-    height: 100%;
+    align-items:center;
+     width: 100%; 
+    height: 100px;
     margin-top: 10px;
-    background-color: red;
+    
+    
 `;
 
 
 const NavLink = styled.div.attrs({ className: 'navlink' })`
     display: flex;
     justify-content: space-between;
-    width: 30%;
-    margin-right: 10%;
+    
+    width: 35%;
+    margin-right: 5%;
     align-items: center;
-    background-color: green;
+    
 `;
 
 
@@ -27,17 +30,17 @@ const Navbar = () => {
     return (
         <Nav className='navbar'>
             <div>
-                <img src="./images/logo.png" alt="" />
+                <img src="./images/logo.png" alt="" style={{width: '70%',marginTop:15}}/>
             </div>
             <NavLink className='navlink'>
-                <div>
+                <div > 
                     <span>Home</span>
-                    <span>About Us</span>
+                    <span>AboutUs</span>
                     <span>Blog</span>
                     <span>Contact</span>
                 </div>
                 <div>
-                    <Button variant="outlined">Appointment</Button>
+                    <Button variant="outlined" style={{borderRadius:'16px',border:'2px solid #4D72D0',textTransform:'none',color:'#4D72D0'}}>Appointment</Button>
                 </div>
             </NavLink>
         </Nav>
