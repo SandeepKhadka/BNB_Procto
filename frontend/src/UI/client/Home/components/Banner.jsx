@@ -27,7 +27,6 @@ const ImageWrapper = styled.div.attrs({ className: 'imageWrapper' })`
     position: absolute;
     top: 5%;
     left: 50%;
-    width: 50%; 
 `;
 
 const TitleH3 = styled.h3`
@@ -42,7 +41,7 @@ const TitleH1 = styled.h1`
 `;
 
 const TitleP = styled.p`
-    margin-bottom: 5%; 
+    margin-bottom: 2%; 
     width: 80%;
     line-height: 40px;
     font-size: 16px;
@@ -60,12 +59,12 @@ const Banner = () => {
                     Vivamus eu lacus ex. Class aptent taciti sociosqu ad litora
                     torquent per conubia nostra, per inceptos ipsum dolor sit amet.</TitleP>
                 <div>
-                    <Button variant="outlined" style={{ borderRadius: '20px', border: '3px solid #4D72D0', textTransform: 'none', background: '#4D72D0', color: 'white', padding: '1% 2% 1% 2%', marginRight: '1%'}}>Make Appointment</Button>
-                    <Button variant="outlined" style={{ borderRadius: '20px', border: '3px solid #5BC198', textTransform: 'none', background: '#5BC198', color: 'white', }}><PlayArrowIcon /></Button>
+                    <Button variant="outlined" style={{ borderRadius: '30px', border: '3px solid #4D72D0', textTransform: 'none', background: '#4D72D0', color: 'white', padding: '1% 2% 1% 2%', marginRight: '1%'}}>Make Appointment</Button>
+                    <Button variant="outlined" style={{ borderRadius: '30px', border: '3px solid #5BC198', textTransform: 'none', background: '#5BC198', color: 'white', }}><PlayArrowIcon /></Button>
                 </div>
             </TitleWrapper>
             <ImageWrapper className='imageWrapper'>
-                <img src="./images/carauselImage1.png" alt="" style={{ width: '70%', marginTop: 15 }} />
+                <img src="./images/carauselImage1.png" alt="" style={{ width: '100%'}} />
             </ImageWrapper>
 
         </Wrapper>
