@@ -37,7 +37,7 @@ const TitleH3 = styled.h3`
 const TitleH1 = styled.h1`
     margin-bottom: 5%;
     font-size: 50px;
-    line-height: 80px;
+    line-height: 60px;
 `;
 
 const TitleP = styled.p`
