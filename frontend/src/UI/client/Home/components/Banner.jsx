@@ -1,74 +1,88 @@
 import styled from 'styled-components';
-import "../styles/Banner.css"
-import { Button } from '@mui/material'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Button } from '@mui/material';
 
-const Wrapper = styled.div.attrs({ className: 'wrapper' })`
+const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column; */
-    align-items:center;
-    width: 100%; 
-    height: 100px;
+    /* align-items: center; */
+    width: 100%;
+    height: auto;
     position: relative;
-    /* padding: 5%; */
-    
+    /* padding: 20px; */
+    box-sizing: border-box;
 `;
 
 const TitleWrapper = styled.div.attrs({ className: 'titleWrapper' })`
-    margin-top: 30%;
     padding: 0 5% 0 10%;
-    width: 40%; 
-    overflow: hidden;
-
+    width: 50%; 
 `;
 
-const ImageWrapper = styled.div.attrs({ className: 'imageWrapper' })`
-    position: absolute;
-    top: 5%;
-    left: 50%;
+const ImageWrapper = styled.div`
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
 `;
 
-const TitleH3 = styled.h3`
-    margin-bottom: 5%; 
-    font-weight: 400;
+const TitleH3 = styled.p`
+    margin: 20% 0 5% 0; 
+    font-weight: lighter;
+    font-size: 20px;
+    color: #2C2E31;
 `;
 
 const TitleH1 = styled.h1`
-    margin-bottom: 5%;
-    font-size: 50px;
-    line-height: 60px;
+    margin-bottom: 10%;
+    font-size: 55px; 
 `;
 
 const TitleP = styled.p`
-    margin-bottom: 2%; 
+    margin-bottom: 20px;
     width: 80%;
-    line-height: 40px;
-    font-size: 16px;
+    line-height: 35px;
+`;
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 
+const StyledButton = styled.button`
+    && {
+        border-radius: 30px;
+        border: 3px solid ${props => props.color || '#4D72D0'};
+        text-transform: none;
+        background: ${props => props.background || '#4D72D0'};
+        color: white;
+        padding: 10px 20px;
+        margin-right: 10px; 
+    }
+`;
+
 const Banner = () => {
     return (
-        <Wrapper className="wrapper">
-            <TitleWrapper className='titleWrapper'>
+        <Wrapper>
+            <TitleWrapper>
                 <TitleH3>We are here for you</TitleH3>
-                <TitleH1>What Makes Us Better, Makes
-                    You Better.</TitleH1>
-                <TitleP>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <TitleH1>What Makes Us Better, Makes You Better.</TitleH1>
+                <TitleP>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Vivamus eu lacus ex. Class aptent taciti sociosqu ad litora
-                    torquent per conubia nostra, per inceptos ipsum dolor sit amet.</TitleP>
-                <div>
-                    <Button variant="outlined" style={{ borderRadius: '30px', border: '3px solid #4D72D0', textTransform: 'none', background: '#4D72D0', color: 'white', padding: '1% 2% 1% 2%', marginRight: '1%'}}>Make Appointment</Button>
-                    <Button variant="outlined" style={{ borderRadius: '30px', border: '3px solid #5BC198', textTransform: 'none', background: '#5BC198', color: 'white', }}><PlayArrowIcon /></Button>
-                </div>
+                    torquent per conubia nostra, per inceptos ipsum dolor sit amet.
+                </TitleP>
+                <ButtonWrapper>
+                    <StyledButton color="#4D72D0" background="" variant="outlined">Make Appointment</StyledButton>
+                    <StyledButton color="#5BC198" background="#5BC198" variant="outlined">
+                        <PlayArrowIcon />
+                    </StyledButton>
+                </ButtonWrapper>
             </TitleWrapper>
-            <ImageWrapper className='imageWrapper'>
-                <img src="./images/carauselImage1.png" alt="" style={{ width: '100%'}} />
+            <ImageWrapper>
+                <img src="./images/carauselImage1.png" alt="" style={{ width: '100%' }} />
             </ImageWrapper>
-
         </Wrapper>
-    )
+    );
 }
 
-export default Banner
+export default Banner;

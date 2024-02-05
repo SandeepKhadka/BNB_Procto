@@ -5,7 +5,9 @@ const AboutContainer = styled.div.attrs({ className: 'aboutUs' })`
     display: flex;
     justify-content: space-between;
     background: #f3f3f3;
-    margin-right: 5%;
+    padding: 0 5% 0 5%;
+    margin: 0 1% 0 1%;
+
 `;
 
 const ImageContainer = styled.div.attrs({ className: 'imageContainer' })`

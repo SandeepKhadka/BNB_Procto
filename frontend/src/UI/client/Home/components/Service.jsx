@@ -7,19 +7,18 @@ const ServiceContainer = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 50px; /* Adjust size as needed */
+    width: ${props => props.logoWidth || '50px'}; /* Use the passed logoWidth prop or default to 50px */
     height: auto;
     margin-right: 10px; /* Adjust spacing as needed */
 `;
-
 const ServiceText = styled.p`
     font-size: 20px; /* Adjust font size as needed */
 `;
 
-const Service = ({ logoSrc, text }) => {
+const Service = ({ logoSrc, text, logoWidth }) => {
     return (
         <ServiceContainer>
-            <Logo src={logoSrc} alt="Service Logo" />
+            <Logo src={logoSrc} alt="Service Logo"  logoWidth={logoWidth}/>
             <ServiceText>{text}</ServiceText>
         </ServiceContainer>
     );
