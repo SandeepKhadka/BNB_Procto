@@ -57,6 +57,12 @@ const StyledButton = styled.button`
         color: white;
         padding: 10px 20px;
         margin-right: 10px; 
+        cursor: pointer;
+    }
+
+    &.make-appointment {
+        padding: 20px 40px; 
+        font-size: 18px;
     }
 `;
 
@@ -72,7 +78,7 @@ const Banner = () => {
                     torquent per conubia nostra, per inceptos ipsum dolor sit amet.
                 </TitleP>
                 <ButtonWrapper>
-                    <StyledButton color="#4D72D0" background="" variant="outlined">Make Appointment</StyledButton>
+                    <StyledButton className='make-appointment' color="#4D72D0" background="" variant="outlined">Make Appointment</StyledButton>
                     <StyledButton color="#5BC198" background="#5BC198" variant="outlined">
                         <PlayArrowIcon />
                     </StyledButton>

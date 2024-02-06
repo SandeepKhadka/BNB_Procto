@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Service from '../Service';
 import AboutUs from './AboutUs';
 import AboutFounder from './AboutFounder';
+import AboutTeam from './AboutTeam';
 
 const AboutWrapper = styled.div.attrs({ className: 'aboutUs' })`
 
@@ -46,6 +47,7 @@ const About_Layout = () => {
                 <Service logoSrc="./images/tick.png" text="Lab Tests" logoWidth="30px" />
             </NewServiceWrapper>
             <AboutFounder />
+            <AboutTeam />
         </AboutWrapper>
     );
 }

@@ -7,12 +7,12 @@ const ServiceContainer = styled.div`
 `;
 
 const Logo = styled.img`
-    width: ${props => props.logoWidth || '50px'}; /* Use the passed logoWidth prop or default to 50px */
+    width: ${props => props.logoWidth || '50px'}; 
     height: auto;
-    margin-right: 10px; /* Adjust spacing as needed */
+    margin-right: 10px; 
 `;
 const ServiceText = styled.p`
-    font-size: 20px; /* Adjust font size as needed */
+    font-size: 20px;
 `;
 
 const Service = ({ logoSrc, text, logoWidth }) => {
