@@ -10,19 +10,20 @@ const TestimonialCard = styled.div`
     position: relative;
     border: 10px solid #FBF1FB; 
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 5%;
     width: 80%;
     max-width: 600px;
 `;
 
 const ClientImage = styled.img`
-    width: 100px;
-    height: 100px; 
+    max-width: 100px;
+    height: auto; 
     border-radius: 50%; 
     position: absolute; 
     top: -50px; 
     left: 50%; 
     transform: translateX(-50%);
+    z-index: 100px;
 `;
 
 const Content = styled.div`

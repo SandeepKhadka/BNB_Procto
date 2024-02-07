@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { Carousel } from 'react-responsive-carousel';
+import '../../../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
 import SingleTestimonial from './SingleTestimonial';
+import styled from 'styled-components';
 
 const TestimonialWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 3%;
+    margin: 3% 0;
 `;
 
 const SubTitle = styled.p`
@@ -25,46 +27,35 @@ const TestimonialsRow = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
     width: 100%;
 `;
 
-const TestimonialCarousel = styled.div`
-    display: flex;
-    transition: transform 0.5s ease;
-`;
+const TestimonialCarousel = styled(Carousel)`
+    width: 100%;
 
-const CarouselButton = styled.button`
-    background-color: transparent;
-    color: #d4d2d2;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 28px;
-
-    &:hover {
-        background-color: rgba(77, 114, 208, 0.1);
-    }
-
-    &:disabled {
-        color: #ccc;
+    .control-arrow {
+        background-color: transparent;
+        color: #d4d2d2;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        margin-top: 20px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 28px;
+
+        &:hover {
+            background-color: rgba(77, 114, 208, 0.1);
+        }
+
+        &:disabled {
+            color: #ccc;
+            cursor: pointer;
+        }
     }
 `;
 
 const Testimonials = () => {
-    const [startIndex, setStartIndex] = useState(0);
-
-    const handlePrev = () => {
-        setStartIndex(prevIndex => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
-    };
-    const handleNext = () => {
-        setStartIndex(Math.min(testimonials.length - 3, startIndex + 1));
-    };
-
     const testimonials = [
         <SingleTestimonial key={1} />,
         <SingleTestimonial key={2} />,
@@ -78,11 +69,21 @@ const Testimonials = () => {
             <SubTitle>----Testimonials----</SubTitle>
             <TitleH1>What Our Clients Say</TitleH1>
             <TestimonialsRow>
-                <CarouselButton onClick={handlePrev} disabled={startIndex === 0}>{"<"}</CarouselButton>
-                <TestimonialCarousel style={{ transform: `translateX(-${startIndex * (100 / 3)}%)` }}>
-                    {testimonials.slice(startIndex, startIndex + 3)}
+                <TestimonialCarousel
+                    showThumbs={false}
+                    showStatus={false}
+                    emulateTouch={true}
+                    infiniteLoop={true}
+                    swipeable={true}
+                    autoPlay={true}
+                    interval={5000}
+                    transitionTime={500}
+                    showArrows={false}
+                    centerMode={true}
+                    centerSlidePercentage={33.33}
+                >
+                    {testimonials}
                 </TestimonialCarousel>
-                <CarouselButton onClick={handleNext} disabled={startIndex === testimonials.length - 3}>{">"}</CarouselButton>
             </TestimonialsRow>
         </TestimonialWrapper>
     );
