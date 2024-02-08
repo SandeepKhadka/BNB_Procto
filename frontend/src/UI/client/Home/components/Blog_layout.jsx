@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Blog from './Blog';
+import { Link } from 'react-router-dom';
+
 
 const BlogRow = styled.div`
   display: flex;
@@ -20,7 +22,7 @@ const ViewMoreContainer = styled.div`
   margin: 20px 0;
 `;
 
-const ViewMoreButton = styled.button`
+const ViewMoreButton = styled(Link)`
   background-color: #4D72D0;
   color: white;
   border: none;
@@ -28,6 +30,7 @@ const ViewMoreButton = styled.button`
   padding: 10px 20px;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: none;
 `;
 
 const Title = styled.h1`
@@ -67,7 +70,7 @@ const BlogLayout = () => {
         </BlogItem>
       </BlogRow>
       <ViewMoreContainer>
-        <ViewMoreButton>View More</ViewMoreButton>
+        <ViewMoreButton to="/blog">View More</ViewMoreButton>
       </ViewMoreContainer>
     </>
   );

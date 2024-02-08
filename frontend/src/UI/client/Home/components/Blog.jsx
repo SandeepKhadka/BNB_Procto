@@ -10,6 +10,7 @@ const BlogContainer = styled.div`
 const BlogImage = styled.img`
   width: 100%;
   height: auto;
+  cursor: pointer;
 `;
 
 const BlogTitle = styled.h2`
