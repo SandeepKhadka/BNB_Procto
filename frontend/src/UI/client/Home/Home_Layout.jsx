@@ -5,7 +5,7 @@ import MidBanner from './components/MidBanner';
 import Testimonials from './components/Testimonials';
 import Blog_layout from './components/Blog_layout';
 import Contact from './components/Contact';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 
 const Home_Layout = () => {
   return (
@@ -15,8 +15,6 @@ const Home_Layout = () => {
       <MidBanner />
       <Testimonials />
       <Blog_layout />
-      <Contact />
-      <Footer />
     </>
   );
 };

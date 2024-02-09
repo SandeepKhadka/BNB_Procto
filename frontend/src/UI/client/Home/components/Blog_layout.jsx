@@ -46,6 +46,8 @@ const BlogLayout = () => {
       <BlogRow>
         <BlogItem>
           <Blog
+            key="1"
+            id="1"
             imageSrc="./images/blog1.png"
             title="Blog Title"
             date="January 1, 2024"
@@ -54,6 +56,8 @@ const BlogLayout = () => {
         </BlogItem>
         <BlogItem>
           <Blog
+             key="2"
+             id="2"
             imageSrc="./images/blog1.png"
             title="Blog Title"
             date="January 1, 2024"
@@ -62,6 +66,8 @@ const BlogLayout = () => {
         </BlogItem>
         <BlogItem>
           <Blog
+             key="3"
+             id="3"
             imageSrc="./images/blog1.png"
             title="Blog Title"
             date="January 1, 2024"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BlogContainer = styled.div`
@@ -34,7 +35,7 @@ const ReadMoreText = styled.p`
   margin-top: 10px;
 `;
 
-const Blog = ({ imageSrc, title, date, description }) => {
+const Blog = ({ id, imageSrc, title, date, description }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => {
@@ -43,7 +44,9 @@ const Blog = ({ imageSrc, title, date, description }) => {
 
   return (
     <BlogContainer>
-      <BlogImage src={imageSrc} alt="Blog" />
+      <Link to={`/blog/${id}`}>
+        <BlogImage src={imageSrc} alt="Blog" />
+      </Link>
       <BlogTitle>{title}</BlogTitle>
       <BlogDate>Published on: {date}</BlogDate>
       <BlogDescription>

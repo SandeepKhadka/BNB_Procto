@@ -111,6 +111,7 @@ const BlogPage = () => {
         {blogsData.slice(0, visibleBlogs).map(blog => (
           <Blog
             key={blog.id}
+            id={blog.id}
             imageSrc={blog.imageSrc}
             title={blog.title}
             date={blog.date}
