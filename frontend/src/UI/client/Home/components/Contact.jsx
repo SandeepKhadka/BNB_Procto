@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
+import contactSection from '../../../../../public/images/contact-section.png';
+import emergencySection from '../../../../../public/images/emergency-section.png';
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +19,7 @@ const ContactDetails = styled.div`
 
 const ContactContainer = styled.div`
   flex: 0 0 calc(50% - 30px);
-  background-image: url('./images/contact-section.png');
+  background-image: url(${contactSection});
   padding: 20px;
   overflow-x: hidden;
 `;
@@ -25,7 +27,7 @@ const ContactContainer = styled.div`
 
 const EmergencyContainer = styled.div`
   flex: 0 0 calc(50% - 50px);
-  background-image: url('./images/emergency-section.png');
+  background-image: url(${emergencySection});
   background-size: cover;
   padding: 20px;
   overflow-x: hidden;

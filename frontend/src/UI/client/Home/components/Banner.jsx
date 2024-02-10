@@ -3,6 +3,8 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 import styled from 'styled-components';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import Appointment from './Appointment';
+import { Modal } from '@mui/material';
 
 const Wrapper = styled.div`
     display: flex;
@@ -76,7 +78,21 @@ const CustomCarousel = styled(Carousel)`
     }
 `;
 
+const StyledModal = styled(Modal)`
+  .MuiBackdrop-root {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color of the backdrop */
+    backdrop-filter: none; /* Remove the blur effect */
+  }
+`;
+
 const Banner = () => {
+    const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
+
+    const toggleAppointmentPopup = () => {
+        setIsAppointmentOpen(!isAppointmentOpen);
+    };
+    
+
     const carouselImages = [
         {
             src: './images/carauselImage1.png',
@@ -114,8 +130,13 @@ const Banner = () => {
                 <TitleH1>{carouselImages[activeSlideIndex].titleH1}</TitleH1>
                 <TitleP>{carouselImages[activeSlideIndex].titleP}</TitleP>
                 <ButtonWrapper>
-                    <StyledButton className='make-appointment' color="#4D72D0" background="" variant="outlined">Make Appointment</StyledButton>
+                    <StyledButton className='make-appointment' color="#4D72D0" background="" variant="outlined" onClick={toggleAppointmentPopup}>Make Appointment</StyledButton>
                     <StyledButton color="#5BC198" background="#5BC198" variant="outlined">
+                        <StyledModal open={isAppointmentOpen} onClose={toggleAppointmentPopup}>
+                            <div>
+                                <Appointment onClose={toggleAppointmentPopup}/>
+                            </div>
+                        </StyledModal>
                         <PlayArrowIcon />
                     </StyledButton>
                 </ButtonWrapper>

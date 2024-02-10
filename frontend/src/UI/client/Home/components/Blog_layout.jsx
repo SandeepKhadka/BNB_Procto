@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Blog from './Blog';
 import { Link } from 'react-router-dom';
+import blogImage from '../../../../../public/images/blog1.png';
 
 
 const BlogRow = styled.div`
@@ -42,13 +43,13 @@ const Title = styled.h1`
 const BlogLayout = () => {
   return (
     <>
-      <Title>Blogs And Articles</Title> {/* Title added */}
+      <Title>Recent Blogs And Articles</Title> {/* Title added */}
       <BlogRow>
         <BlogItem>
           <Blog
             key="1"
             id="1"
-            imageSrc="./images/blog1.png"
+            imageSrc={blogImage}
             title="Blog Title"
             date="January 1, 2024"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero..."
@@ -58,7 +59,7 @@ const BlogLayout = () => {
           <Blog
              key="2"
              id="2"
-            imageSrc="./images/blog1.png"
+            imageSrc={blogImage}
             title="Blog Title"
             date="January 1, 2024"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero..."
@@ -68,7 +69,7 @@ const BlogLayout = () => {
           <Blog
              key="3"
              id="3"
-            imageSrc="./images/blog1.png"
+            imageSrc={blogImage}
             title="Blog Title"
             date="January 1, 2024"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero..."

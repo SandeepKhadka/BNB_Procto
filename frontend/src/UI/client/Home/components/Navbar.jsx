@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '@mui/material';
+import { Button, Modal } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import Appointment from './Appointment';
+import logo from '../../../../../public/images/logo.png';
 
 const Nav = styled.div.attrs({ className: 'navbar' })`
     display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     height: 100px;
     margin-top: 10px;
     padding: 0 5% 0 5%;
@@ -44,10 +46,16 @@ const NavList = styled.div.attrs({ className: 'navlist' })`
 `;
 
 const Navbar = () => {
+    const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
+
+    const toggleAppointmentPopup = () => {
+        setIsAppointmentOpen(!isAppointmentOpen);
+    };
+
     return (
         <Nav className='navbar'>
             <div>
-                <img src="./images/logo.png" alt="" style={{ width: '70%' }} />
+                <img src={logo} alt="" style={{ width: '70%' }} />
             </div>
             <NavLinkWrapper className='navlink'>
                 <NavList className='navlist'>
@@ -61,7 +69,12 @@ const Navbar = () => {
                     <span>Contact</span>
                 </NavList>
                 <div>
-                    <Button variant="outlined" style={{ borderRadius: '16px', border: '2px solid #4D72D0', textTransform: 'none', color: '#4D72D0' }}>Appointment</Button>
+                    <Button variant="outlined" style={{ borderRadius: '16px', border: '2px solid #4D72D0', textTransform: 'none', color: '#4D72D0' }} onClick={toggleAppointmentPopup}>Appointment</Button>
+                    <Modal open={isAppointmentOpen} onClose={toggleAppointmentPopup}>
+                        <div>
+                            <Appointment onClose={toggleAppointmentPopup} />
+                        </div>
+                    </Modal>
                 </div>
             </NavLinkWrapper>
         </Nav>

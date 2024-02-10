@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Modal } from '@mui/material';
+import Appointment from './Appointment';
+import { useState } from 'react';
 
 const MidBannerWrapper = styled.div`
     display: flex;
@@ -66,6 +69,11 @@ const StyledButton = styled.button`
 `;
 
 const MidBanner = () => {
+    const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
+
+    const toggleAppointmentPopup = () => {
+        setIsAppointmentOpen(!isAppointmentOpen);
+    };
     return (
         <MidBannerWrapper>
             <ImageContainer />
@@ -75,10 +83,15 @@ const MidBanner = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. <br />Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                 </Description>
                 <ButtonWrapper>
-                    <StyledButton className='make-appointment' color="" background="#5BC198" variant="outlined">Make Appointment</StyledButton>
+                    <StyledButton className='make-appointment' color="" background="#5BC198" variant="outlined" onClick={toggleAppointmentPopup}>Make Appointment</StyledButton>
                     <StyledButton color="" background="#3C3F42" variant="outlined">
                         <PlayArrowIcon />
                     </StyledButton>
+                    <Modal open={isAppointmentOpen} onClose={toggleAppointmentPopup}>
+                        <div>
+                            <Appointment onClose={toggleAppointmentPopup} />
+                        </div>
+                    </Modal>
                 </ButtonWrapper>
             </Detail>
         </MidBannerWrapper>

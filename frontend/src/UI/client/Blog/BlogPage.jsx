@@ -3,69 +3,69 @@ import styled from 'styled-components';
 import Blog from '../Home/components/Blog';
 
 const blogsData = [
-    {
-        id: 1,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 2,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 3,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 4,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 5,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 6,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 7,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 8,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
-    {
-        id: 9,
-        imageSrc: './images/blog1.png',
-        title: 'Blog Title 1',
-        date: 'January 1, 2024',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    },
+  {
+      id: 1,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 2,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 3,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 4,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 5,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 6,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 7,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 8,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
+  {
+      id: 9,
+      imageSrc: './images/blog1.png',
+      title: 'Blog Title 1',
+      date: 'January 1, 2024',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+  },
 ];
 
 const BlogListContainer = styled.div`
@@ -83,8 +83,8 @@ const LoadingIndicator = styled.img`
 `;
 
 const BlogPage = () => {
-  const [visibleBlogs, setVisibleBlogs] = useState(6); // Change initial state to show all blogs
-  const [loading, setLoading] = useState(false);
+  const [visibleBlogs, setVisibleBlogs] = useState(6);
+  const [loading, setLoading] = useState(true); // Set loading initially to true
   const loadMoreRef = useRef(null);
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const BlogPage = () => {
         setTimeout(() => {
           setVisibleBlogs(prevVisibleBlogs => prevVisibleBlogs + 3);
           setLoading(false);
-        }, 1000); // Simulating loading time
+        }, 1000);
       }
     };
 
@@ -105,22 +105,34 @@ const BlogPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Simulating initial loading delay
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Adjust the delay time as needed
+  }, []);
+
   return (
     <>
-      <BlogListContainer>
-        {blogsData.slice(0, visibleBlogs).map(blog => (
-          <Blog
-            key={blog.id}
-            id={blog.id}
-            imageSrc={blog.imageSrc}
-            title={blog.title}
-            date={blog.date}
-            description={blog.description}
-          />
-        ))}
-      </BlogListContainer>
-      {loading && <LoadingIndicator src="./images/loading.gif" alt="Loading..." />}
-      <div ref={loadMoreRef}></div>
+      {loading ? (
+        <LoadingIndicator src="./images/loading.gif" alt="Loading..." />
+      ) : (
+        <>
+          <BlogListContainer>
+            {blogsData.slice(0, visibleBlogs).map(blog => (
+              <Blog
+                key={blog.id}
+                id={blog.id}
+                imageSrc={blog.imageSrc}
+                title={blog.title}
+                date={blog.date}
+                description={blog.description}
+              />
+            ))}
+          </BlogListContainer>
+          <div ref={loadMoreRef}></div>
+        </>
+      )}
     </>
   );
 };
