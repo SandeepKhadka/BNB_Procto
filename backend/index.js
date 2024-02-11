@@ -1,31 +1,36 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
-const router = require('./routes/routes')
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const sequelize = require("./db");
+
+const router = require("./routes/routes");
+
+const app = express();
+const PORT = process.env.PORT || 8000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 8000;
-
 app.use("/", router);
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((err) => {
-    console.error("Unable to connect to the database:", err);
-  });
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to MongoDB Atlas");
+});
 
 app.use((err, req, res, next) => {
-  console.log(err);
+  console.error(err);
   res.status(500).send("Internal Server Error");
 });
 
 app.listen(PORT, () => {
-  console.log("Server successfully started at port ", PORT);
+  console.log("Server successfully started at port", PORT);
 });
