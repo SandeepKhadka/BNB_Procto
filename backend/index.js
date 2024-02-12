@@ -3,6 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+
+//goru maile yo change office bata gareko ho. taile const uri ma dbname rakh hai tyo narakhera error aako raixa jasto lagyo. 
+//dbname chai last ma mongodb.net/dbname teha hunxa hai
+
 const router = require("./routes/routes");
 
 const app = express();
